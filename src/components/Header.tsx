@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -15,7 +14,6 @@ const Header = () => {
     { name: "Services", href: "/services" },
     { name: "Products", href: "/products" },
     { name: "R&D", href: "/research" },
-    { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
   ];
 

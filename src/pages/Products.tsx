@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import ProductCard from "@/components/ProductCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Computer, HardDrive, Keyboard, Mouse, Monitor, Printer, Usb, Laptop, Microchip, Server, Router, Webcam } from "lucide-react";
 
 const Products = () => {
   const itProducts = [
@@ -48,6 +49,27 @@ const Products = () => {
       price: 2200,
       image: "https://images.unsplash.com/photo-1623949556303-b0d17c371ca0?w=600&auto=format&fit=crop&q=60",
     },
+    {
+      id: "monitor-1",
+      name: "27\" 4K IPS Monitor",
+      description: "Ultra-clear 4K resolution with IPS panel for accurate colors. Perfect for designers and professionals.",
+      price: 28000,
+      image: "https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=600&auto=format&fit=crop&q=60",
+    },
+    {
+      id: "laptop-1",
+      name: "Business Ultrabook",
+      description: "Thin and light laptop with Intel Core i7, 16GB RAM and 512GB SSD for professional work on the go.",
+      price: 75000,
+      image: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&auto=format&fit=crop&q=60",
+    },
+    {
+      id: "router-1",
+      name: "Wi-Fi 6 Mesh Router",
+      description: "Next-generation Wi-Fi 6 mesh system for whole-home coverage and blazing fast speeds up to 3Gbps.",
+      price: 15000,
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=60",
+    },
   ];
 
   const softwareProducts = [
@@ -72,6 +94,58 @@ const Products = () => {
       price: 12000,
       image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=60",
     },
+    {
+      id: "software-4",
+      name: "Project Management Tool",
+      description: "Collaborative project management platform with Gantt charts, resource allocation, and team communication.",
+      price: 5999,
+      image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600&auto=format&fit=crop&q=60",
+    },
+    {
+      id: "software-5",
+      name: "Database Management System",
+      description: "Enterprise-grade database solution with advanced security features, backup and recovery options.",
+      price: 24999,
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=60",
+    },
+    {
+      id: "software-6",
+      name: "Cloud Backup Solution",
+      description: "Secure cloud storage and backup with automatic syncing, version control, and easy recovery.",
+      price: 3999,
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&auto=format&fit=crop&q=60",
+    },
+  ];
+
+  const networkProducts = [
+    {
+      id: "network-1",
+      name: "Business VPN Solution",
+      description: "Secure remote access VPN with multi-factor authentication and centralized management console.",
+      price: 8999,
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&auto=format&fit=crop&q=60",
+    },
+    {
+      id: "network-2",
+      name: "Network Security Appliance",
+      description: "All-in-one firewall, intrusion prevention, and content filtering for small to medium businesses.",
+      price: 35000,
+      image: "https://images.unsplash.com/photo-1638136264464-2711f0078d1e?w=600&auto=format&fit=crop&q=60",
+    },
+    {
+      id: "network-3",
+      name: "24-Port Gigabit Switch",
+      description: "Enterprise-grade managed switch with VLAN support, QoS, and power over Ethernet for office environments.",
+      price: 12500,
+      image: "https://images.unsplash.com/photo-1648376004610-bc99e0367f1b?w=600&auto=format&fit=crop&q=60",
+    },
+    {
+      id: "network-4",
+      name: "Network Monitoring Tool",
+      description: "Comprehensive network monitoring solution with alerts, reporting, and bandwidth analysis capabilities.",
+      price: 18000,
+      image: "https://images.unsplash.com/photo-1590856029826-c7a73142d2ee?w=600&auto=format&fit=crop&q=60",
+    },
   ];
 
   // Gallery items for the product showcase
@@ -91,8 +165,22 @@ const Products = () => {
     {
       src: "https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=600&auto=format&fit=crop&q=60",
       alt: "Electronic circuit board close-up"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1591405351990-4726e331f141?w=600&auto=format&fit=crop&q=60",
+      alt: "Data center with server racks"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1601737487795-dab272f52420?w=600&auto=format&fit=crop&q=60",
+      alt: "Laptop and smartphone on desk"
     }
   ];
+
+  const categoryIcons = {
+    hardware: <Computer className="h-5 w-5 mr-2" />,
+    software: <HardDrive className="h-5 w-5 mr-2" />,
+    network: <Router className="h-5 w-5 mr-2" />
+  };
 
   return (
     <>
@@ -112,7 +200,7 @@ const Products = () => {
       <section className="py-12 bg-bhimgi-gray">
         <div className="container-custom">
           <h2 className="section-title text-center mb-10">Featured Products</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {galleryImages.map((image, index) => (
               <div 
                 key={index} 
@@ -137,14 +225,21 @@ const Products = () => {
           <div className="text-center mb-8">
             <h2 className="section-title">Our Product Catalog</h2>
             <p className="section-subtitle mx-auto">
-              Browse our selection of high-quality hardware and software products
+              Browse our selection of high-quality hardware, software, and network products
             </p>
           </div>
           
           <Tabs defaultValue="hardware" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
-              <TabsTrigger value="hardware">Hardware Products</TabsTrigger>
-              <TabsTrigger value="software">Software Solutions</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-3 mb-8">
+              <TabsTrigger value="hardware" className="flex items-center justify-center">
+                {categoryIcons.hardware} Hardware
+              </TabsTrigger>
+              <TabsTrigger value="software" className="flex items-center justify-center">
+                {categoryIcons.software} Software
+              </TabsTrigger>
+              <TabsTrigger value="network" className="flex items-center justify-center">
+                {categoryIcons.network} Networking
+              </TabsTrigger>
             </TabsList>
             
             <TabsContent value="hardware">
@@ -165,6 +260,21 @@ const Products = () => {
             <TabsContent value="software">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {softwareProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    name={product.name}
+                    description={product.description}
+                    price={product.price}
+                    image={product.image}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="network">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {networkProducts.map((product) => (
                   <ProductCard
                     key={product.id}
                     id={product.id}
