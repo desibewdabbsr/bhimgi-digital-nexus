@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import ProductCard from "@/components/ProductCard";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Products = () => {
   const itProducts = [
@@ -10,42 +11,42 @@ const Products = () => {
       name: "Ergonomic Wireless Mouse",
       description: "Comfortable ergonomic design with silent clicking and high precision tracking. Compatible with Windows and Mac.",
       price: 1200,
-      image: "https://placehold.co/400x300?text=Wireless+Mouse",
+      image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&auto=format&fit=crop&q=60",
     },
     {
       id: "mouse-2",
       name: "Gaming Mouse with RGB",
       description: "High-performance gaming mouse with customizable RGB lighting, adjustable DPI, and programmable buttons.",
       price: 2500,
-      image: "https://placehold.co/400x300?text=Gaming+Mouse",
+      image: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&auto=format&fit=crop&q=60",
     },
     {
       id: "keyboard-1",
       name: "Mechanical Keyboard",
       description: "Premium mechanical keyboard with Cherry MX switches, dedicated media controls, and customizable backlighting.",
       price: 5000,
-      image: "https://placehold.co/400x300?text=Mechanical+Keyboard",
+      image: "https://images.unsplash.com/photo-1561112078-7d24e041952a?w=600&auto=format&fit=crop&q=60",
     },
     {
       id: "keyboard-2",
       name: "Wireless Keyboard and Mouse Combo",
       description: "Business-ready wireless keyboard and mouse set with long battery life and spill-resistant design.",
       price: 2800,
-      image: "https://placehold.co/400x300?text=Keyboard+Mouse+Combo",
+      image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format&fit=crop&q=60",
     },
     {
       id: "headset-1",
       name: "Professional Headset",
       description: "Noise-cancelling headset with crystal clear microphone, perfect for business calls and online meetings.",
       price: 3500,
-      image: "https://placehold.co/400x300?text=Professional+Headset",
+      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=60",
     },
     {
       id: "webcam-1",
       name: "HD Webcam",
       description: "Full HD 1080p webcam with auto focus, light correction and built-in microphone for clear video calls.",
       price: 2200,
-      image: "https://placehold.co/400x300?text=HD+Webcam",
+      image: "https://images.unsplash.com/photo-1623949556303-b0d17c371ca0?w=600&auto=format&fit=crop&q=60",
     },
   ];
 
@@ -55,22 +56,42 @@ const Products = () => {
       name: "Antivirus Premium",
       description: "Complete protection against viruses, malware, ransomware, and online threats with real-time scanning.",
       price: 999,
-      image: "https://placehold.co/400x300?text=Antivirus+Software",
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&auto=format&fit=crop&q=60",
     },
     {
       id: "software-2",
       name: "Office Productivity Suite",
       description: "Comprehensive suite of office applications including word processing, spreadsheets, presentations, and more.",
       price: 7500,
-      image: "https://placehold.co/400x300?text=Office+Suite",
+      image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&auto=format&fit=crop&q=60",
     },
     {
       id: "software-3",
       name: "Accounting Software",
       description: "Complete accounting solution for small and medium businesses with invoicing, inventory, and tax management.",
       price: 12000,
-      image: "https://placehold.co/400x300?text=Accounting+Software",
+      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=60",
     },
+  ];
+
+  // Gallery items for the product showcase
+  const galleryImages = [
+    {
+      src: "https://images.unsplash.com/photo-1563770660941-10f9f7e73f84?w=600&auto=format&fit=crop&q=60",
+      alt: "Modern office workspace with computers"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1591808216268-eb69a945b069?w=600&auto=format&fit=crop&q=60",
+      alt: "Server room with network equipment"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1581092921461-39b9d08ed9eb?w=600&auto=format&fit=crop&q=60",
+      alt: "Computer hardware components"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=600&auto=format&fit=crop&q=60",
+      alt: "Electronic circuit board close-up"
+    }
   ];
 
   return (
@@ -87,58 +108,80 @@ const Products = () => {
         </div>
       </section>
       
-      {/* Hardware Products Section */}
-      <section className="section">
+      {/* Product Gallery Showcase */}
+      <section className="py-12 bg-bhimgi-gray">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Hardware Products</h2>
-            <p className="section-subtitle mx-auto">
-              High-quality computer peripherals and accessories for better productivity
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {itProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                id={product.id}
-                name={product.name}
-                description={product.description}
-                price={product.price}
-                image={product.image}
-              />
+          <h2 className="section-title text-center mb-10">Featured Products</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {galleryImages.map((image, index) => (
+              <div 
+                key={index} 
+                className={`overflow-hidden rounded-lg shadow-md ${
+                  index === 0 ? 'md:col-span-2 md:row-span-2' : ''
+                }`}
+              >
+                <img 
+                  src={image.src} 
+                  alt={image.alt} 
+                  className="w-full h-full object-cover transition-transform hover:scale-105" 
+                />
+              </div>
             ))}
           </div>
         </div>
       </section>
       
-      {/* Software Products Section */}
-      <section className="section bg-bhimgi-gray">
+      {/* Product Categories Section with Tabs */}
+      <section className="section">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Software Solutions</h2>
+          <div className="text-center mb-8">
+            <h2 className="section-title">Our Product Catalog</h2>
             <p className="section-subtitle mx-auto">
-              Reliable software products to enhance your digital workspace
+              Browse our selection of high-quality hardware and software products
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {softwareProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                id={product.id}
-                name={product.name}
-                description={product.description}
-                price={product.price}
-                image={product.image}
-              />
-            ))}
-          </div>
+          <Tabs defaultValue="hardware" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 mb-8">
+              <TabsTrigger value="hardware">Hardware Products</TabsTrigger>
+              <TabsTrigger value="software">Software Solutions</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="hardware">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {itProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    name={product.name}
+                    description={product.description}
+                    price={product.price}
+                    image={product.image}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="software">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {softwareProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    name={product.name}
+                    description={product.description}
+                    price={product.price}
+                    image={product.image}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
       
       {/* Enterprise Solutions Section */}
-      <section className="section">
+      <section className="section bg-bhimgi-gray">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="section-title">Enterprise Solutions</h2>
@@ -165,7 +208,7 @@ const Products = () => {
               </div>
               <div className="flex items-center justify-center">
                 <img 
-                  src="https://placehold.co/600x400?text=Enterprise+Solutions" 
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=60" 
                   alt="Enterprise IT Solutions"
                   className="rounded-lg shadow-sm" 
                 />
