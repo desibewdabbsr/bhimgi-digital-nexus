@@ -98,7 +98,7 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="section bg-bhimgi-gray">
+      {/* <section className="section bg-bhimgi-gray">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="section-title">Our Team</h2>
@@ -152,7 +152,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact CTA */}
       <section className="py-16 bg-bhimgi-blue text-white">
